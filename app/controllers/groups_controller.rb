@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.build(group_params)
 
     respond_to do |format|
       if @group.save
@@ -86,7 +86,7 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      @group = current_user.groups.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

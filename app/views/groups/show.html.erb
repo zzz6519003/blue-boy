@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user %>
+    <div class="group pull-right">
+      <% if current_user.is_member_of?(@group) %>
+          <%= link_to("Quit Group", quit_group_path(@group), :method => :post, :class => "btn btn-mini") %>
+      <% else %>
+          <%= link_to("Join Group", join_group_path(@group), :method => :post, :class => "btn btn-mini") %> <% end %>
+    </div> <% end %>
+
+
 <p>
   <strong>Title:</strong>
   <%= @group.title %>

@@ -51,6 +51,28 @@ class GroupsController < ApplicationController
     end
   end
 
+  def join
+    @group = Group.find(params[:id])
+    if !current_user.is_member_of?(@group)
+      current_user.join!(@group)
+    else
+      flash[:warning] = "You already joined this group."
+    end
+
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find(params[:id])
+    if current_user.is_member_of?(@group)
+      current_user.quit!(@group)
+    else
+      flash[:warning] = "You are not memeber of this group."
+    end
+
+    redirect_to group_path(@group)
+  end
+
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy

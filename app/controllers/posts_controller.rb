@@ -20,6 +20,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @group = Group.find(params[:group_id])
+    @post = @group.posts.build
   end
 
   # POST /posts

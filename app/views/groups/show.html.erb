@@ -6,7 +6,16 @@
           <%= link_to("Quit Group", quit_group_path(@group), :method => :post, :class => "btn btn-mini") %>
       <% else %>
           <%= link_to("Join Group", join_group_path(@group), :method => :post, :class => "btn btn-mini") %> <% end %>
-    </div> <% end %>
+    </div>
+<% end %>
+
+
+<divclass="span12">
+<div class="group pull-right">
+  <%= link_to("Edit", edit_group_path(@group) , :class => "btn btn-mini ")%>
+  <%= link_to("New Post", new_group_post_path(@group) , :class => "btn btn-mini btn-primary")%>
+  &nbsp;
+</div>
 
 
 <p>
@@ -19,5 +28,13 @@
   <%= @group.description %>
 </p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<table class="table">
+  <tbody>
+  <% @posts.each do |post| %> <tr>
+    <td> <%= post.content %> </td>
+    <td> <%= link_to("Edit", edit_group_post_path(post.group, post), :class => "btnbtn-mini")%>
+      <%= link_to("Delete", group_post_path(post.group, post), :class => "btn btn-mini",:method=>:delete,:confirm=>"Areyousure?")%></td>
+  </tr>
+  <% end %> </tbody>
+</table>
+</div>

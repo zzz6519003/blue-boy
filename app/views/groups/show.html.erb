@@ -28,6 +28,11 @@
   <%= @group.description %>
 </p>
 
+<p>
+  <strong>Wechat group:</strong>
+  <%= image_tag @group.wechat_group.url %>
+
+</p>
 <table class="table">
   <tbody>
   <% @posts.each do |post| %> <tr>

@@ -94,6 +94,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:title, :description)
+      params.require(:group).permit(:title, :description, :wechat_group)
     end
 end

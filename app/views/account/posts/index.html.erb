@@ -6,9 +6,9 @@
   <tbody>
   <% @posts.each do |post| %>
     <tr>
-    <td> <p> <%= post.content %> </p> </td>
+    <td> <p> <%= simple_format post.content %> </p> </td>
     <td> <%= post.group.title %> </td>
-    <td> <%= post.updated_at %> </td>
+    <td> <%= post.updated_at.to_s(:long) %> </td>
     <td> <%= link_to "Edit", edit_group_post_path(post.group, post), :class => "btn btn-mini" %>
     <%= link_to "Delete", group_post_path(post.group, post), :class => "btn btn-mini", :method => :delete, :confirm => "Are you sure?" %></td>
     </tr>

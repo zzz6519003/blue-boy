@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923140945) do
+ActiveRecord::Schema.define(version: 20140924140553) do
 
   create_table "group_users", force: true do |t|
     t.integer  "group_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140923140945) do
     t.string   "wechat_group_content_type"
     t.integer  "wechat_group_file_size"
     t.datetime "wechat_group_updated_at"
+    t.integer  "count_down_days"
   end
 
   create_table "posts", force: true do |t|

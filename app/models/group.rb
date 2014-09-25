@@ -14,4 +14,8 @@ class Group < ActiveRecord::Base
   def editable_by?(user)
     user && user == owner
   end
+
+  def log
+    puts "sdfs"
+  end
 end

@@ -19,7 +19,11 @@
         <td><%= group.description %></td>
         <td><%= link_to "Posts", group_posts_path(group) %></td>
         <td><%= group.owner.name %></td>
-        <td><%= group.count_down_days %></td>
+        <% if group.count_down_days %>
+          <td><%= group.count_down_days %></td>
+        <% else %>
+          <td> # </td>
+        <% end %>
         <td><%= link_to 'Show', group %></td>
         <% if current_user && group.editable_by?(current_user) %>
           <td><%= link_to 'Edit', edit_group_path(group) %></td>

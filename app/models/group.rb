@@ -16,6 +16,6 @@ class Group < ActiveRecord::Base
   end
 
   def log
-    puts "sdfs"
+    puts "schedule work logged!"
   end
 end

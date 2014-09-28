@@ -18,4 +18,19 @@ class Group < ActiveRecord::Base
   def log
     puts "schedule work logged!"
   end
+
+  def self.increase_count_down(group_id)
+    group = Group.find(group_id)
+    group.count_down_days ||= 1
+    group.count_down_days -= 1
+    group.save
+  end
+
+  def self.decrease_count_down(group_id)
+    group = Group.find(group_id)
+    group.count_down_days ||= 1
+    group.count_down_days += 1
+    group.save
+  end
+
 end

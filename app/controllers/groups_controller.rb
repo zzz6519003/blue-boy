@@ -86,6 +86,18 @@ class GroupsController < ApplicationController
     end
   end
 
+  def increase_count_down
+    @group = Group.find(params[:id])
+    Group.increase_count_down(params[:id])
+    redirect_to group_path(@group)
+  end
+
+  def decrease_count_down
+    @group = Group.find(params[:id])
+    Group.decrease_count_down(params[:id])
+    redirect_to group_path(@group)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
